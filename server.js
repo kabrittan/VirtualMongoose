@@ -35,6 +35,6 @@ app.use(express.static("public"));
 app.use('/', routes);
 
 // Listen on port 3000
-app.listen(3000, function() {
-  console.log("App running on port 3000!");
+app.listen(8080, () => {
+  console.log("App running on port:" + PORT + "!");
 });

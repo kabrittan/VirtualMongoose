@@ -12,7 +12,7 @@ const scrapedNews = () => {
         // Load the html body from request into cheerio
         var $ = cheerio.load(html);
         // For each article element with a "buckets-bottom" class
-        $("article.hed-summ").each(function (i, element) {
+        $("div.buckets-bottom article").each(function (i, element) {
     
           // Initiate an empty entry object
           var data = {};
@@ -28,11 +28,11 @@ const scrapedNews = () => {
           var entry = new Article(data);
         
           entry.save(function(error, doc){
-            if (error){
+            if (error) {
               console.log(`Sorry, we have encountered an error: ${error}`)
             }
             // or log the doc
-            else{
+            else {
               console.log(`
               Your article: ${doc}`)
             }

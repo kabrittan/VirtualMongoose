@@ -1,17 +1,19 @@
 // Require Mongoose
 const mongoose = require("mongoose");
+const mongojs = require("mongojs");
 
 //Set access to ES6 Promises
 mongoose.Promise = Promise;
 
 mongoose.connect("mongodb://localhost/virtualmongoose");
+const db = mongoose.connection;
 
 // Database configuration
-const databaseUrl = "virtualmongoose";
-const collections = ["scrapedData"];
+//const databaseUrl = "virtualmongoose";
+//const collections = ["scrapedData"];
 
 // Hook mongojs configuration to the db variable
-const db = mongojs(databaseUrl, collections);
+//const db = mongojs(databaseUrl, collections);
 
 // Show connection errors
 db.on("error", function(error) {
